@@ -1,7 +1,10 @@
-package lk.ijse.dep9.clientservice.dao;
+package lk.ijse.dep9.clientservice.repository;
 
-import org.springframework.stereotype.Component;
+import lk.ijse.dep9.clientservice.entity.Client;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
-@Component
-public class ClientDAO {
+@Transactional
+public interface ClientRepository extends CrudRepository<Client,String> {
 }
