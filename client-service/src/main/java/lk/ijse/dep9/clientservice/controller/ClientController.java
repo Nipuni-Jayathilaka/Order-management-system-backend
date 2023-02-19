@@ -6,11 +6,10 @@ import lk.ijse.dep9.clientservice.service.ClientService;
 import lk.ijse.dep9.clientservice.util.ValidationGroups;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/client")
 public class ClientController {
@@ -29,7 +28,7 @@ public class ClientController {
 
     }
     @PostMapping(value = ("/verify"), consumes = "application/json")
-    public HttpStatus verifyUser(@RequestHeader LoginDTO loginDTO, @AuthenticationPrincipal String username) throws Throwable {
+    public HttpStatus verifyUser(@RequestBody LoginDTO loginDTO) throws Throwable {
         return clientService.findClient(loginDTO);
 
     }

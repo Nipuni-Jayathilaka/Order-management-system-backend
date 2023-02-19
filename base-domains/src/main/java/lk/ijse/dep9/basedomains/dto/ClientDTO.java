@@ -8,22 +8,19 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientDTO {
+public class ClientDTO implements Serializable {
     @NotBlank(message = "first name cannot be empty")
-    @Pattern(regexp = "^a-zA-Z $", message = "please enter a valid name")
     private String firstName;
-    @NotBlank(message = "first name cannot be empty")
-    @Pattern(regexp = "^a-zA-Z $", message = "please enter a valid name")
+    @NotBlank(message = "last name cannot be empty")
     private String lastName;
-    @NotBlank(message = "first name cannot be empty")
-    @Pattern(regexp = "^a-zA-Z $", message = "please enter a valid name")
+    @NotBlank(message = "address cannot be empty")
     private String address;
-    @NotBlank(message = "first name cannot be empty")
-    @Pattern(regexp = "^a-zA-Z $", message = "please enter a valid name")
+    @NotBlank(message = "username cannot be empty")
     private String username;
     @NotEmpty(message = "password cannot be empty")
     @Length(min = 3, message = "password length should  be more than 3")
